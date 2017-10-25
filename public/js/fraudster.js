@@ -36,9 +36,9 @@ $( document ).ready(function() {
 	arrPos.push(14.1);//14 hide skip
 	arrPos.push(77);//15 end after she
 	arrPos.push(86);//16 end after he
-	arrPos.push(70.1);//17 she is not button
+	arrPos.push(69.4);//17 she is not button
 	arrPos.push(78.6);//18 he is not buttons
-	arrPos.push(88.1);//19 you failed btns
+	arrPos.push(88.5);//19 you failed btns
 	
 	//vidAudio = new Audio('audio/bgsound.mp3');
 	//vidAudio.setAttribute("id", "audio1");
@@ -150,9 +150,7 @@ $( document ).ready(function() {
 	
 	vid.addEventListener("timeupdate", function(){
 		for (i = 0;i < arrPos.length; i++) { 
-			//console.log(parseInt(this.currentTime) + " == " + arrPos[i]);
 			var newVal = (this.currentTime.toFixed(1) - arrPos[i]);
-		//	console.log(newVal);
 			if ((newVal > -0.3) && (newVal < 0.8) ) {
 				if (i != glblPos){
 					glblPos = i;
@@ -244,7 +242,6 @@ function vidAction(actionId){
 	}
 	else if (actionId == 9){
 		//she is not msg
-		console.log("9:" + glblAction);
 		if (glblAction == ""){
 			goTofinalFrame();			
 		}
@@ -254,7 +251,6 @@ function vidAction(actionId){
 	}
 	else if (actionId == 10){
 		//he is not msg
-		console.log("10:" + glblAction);
 		if (glblAction == ""){
 			goTofinalFrame();			
 		}
@@ -269,7 +265,6 @@ function vidAction(actionId){
 		//showAgainButtins();	
 	}	
 	else if (actionId == 12){
-		console.log("actoin 12");
 		if (glblAction != GO_TO_END){
 			//showAgainButtins();	
 			pauseBeforeEnd();
@@ -331,7 +326,6 @@ function vidAction(actionId){
  }
  
  function wrongAnswer(gender){
-	console.log("inside wrong");
 	if (gender == "male"){
 		var nextPoint = arrPos[10];
 		glblAction = HE_IS_NOT;
@@ -359,19 +353,15 @@ function goToEnd(){
 	console.log("btnwhy");
 	glblAction = GO_TO_END;
 	 
-	console.log("dotoend");
  	var nextPos = 97.11;
 	goToPos(nextPos);
-	console.log("after dotoend");
 	$( "#btnPause" ).show();
 	$( "#btnMute" ).show();
 	
 	if (!isAndroid()){
-		console.log("..356");
 		if (!isFrausterFound){
 			console.log("..358");
 			if (!isMuted){
-				console.log("..360");
 				vidAudio = document.getElementById('audio1');	
 				if (vidAudio.volume == 0.0){
 					$("#audio1").animate({volume: 0.7}, 0,
@@ -381,7 +371,7 @@ function goToEnd(){
 						vidAudio.currentTime = 15;
 						vidAudio.play();
 					});
-			}
+				}
 			}
 		}
 	}
