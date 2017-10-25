@@ -37,8 +37,8 @@ $( document ).ready(function() {
 	arrPos.push(77);//15 end after she
 	arrPos.push(86);//16 end after he
 	arrPos.push(70.1);//17 she is not button
-	arrPos.push(78.6);/18 he is not buttons
-	arrPos.push(88.1);/19 you failed btns
+	arrPos.push(78.6);//18 he is not buttons
+	arrPos.push(88.1);//19 you failed btns
 	
 	//vidAudio = new Audio('audio/bgsound.mp3');
 	//vidAudio.setAttribute("id", "audio1");
