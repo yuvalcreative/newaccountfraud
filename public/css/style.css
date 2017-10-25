@@ -1,0 +1,163 @@
+ @font-face { font-family: HelvNeueBoldforIBM; src: url('fonts/HelvNeueBoldforIBM.otf'); } 
+ @font-face { font-family: HelvNeueBoldItalicforIBM; src: url('fonts/HelvNeueBoldItalicforIBM.otf'); } 
+ @font-face { font-family: HelvNeueCondforIBM; src: url('fonts/HelvNeueCondforIBM.otf'); } 
+ @font-face { font-family: HelvNeueLightCondforIBM; src: url('fonts/HelvNeueLightCondforIBM.otf'); } 
+ @font-face { font-family: HelvNeueLightforIBM; src: url('fonts/HelvNeueLightforIBM.otf'); } 
+ @font-face { font-family: HelvNeueLightItalicforIBM; src: url('fonts/HelvNeueLightItalicforIBM.otf'); } 
+ @font-face { font-family: HelvNeueMediumforIBM; src: url('fonts/HelvNeueMediumforIBM.otf'); } 
+ @font-face { font-family: HelvNeueMediumItalicforIBM; src: url('fonts/HelvNeueMediumItalicforIBM.otf'); } 
+ @font-face { font-family: HelvNeueRomanforIBM; src: url('fonts/HelvNeueRomanforIBM.otf'); } 
+ @font-face { font-family: HelvNeueRomanItalicforIBM; src: url('fonts/HelvNeueRomanItalicforIBM.otf'); } 
+
+body {
+	margin:0px;
+	padding:0px;
+}
+ 
+#dvLogo {
+	padding-top:11px;
+	padding-bottom:8px;
+	padding-left:30px;
+	margin:0px;
+}
+
+#dvLogo img{
+	border:0px;
+	height: 20px;
+}
+
+#dvTopHdr {
+	color: white;
+	height: 127px;
+	
+	background: url(../img/hdrbg.jpg);
+    background-repeat: no-repeat;    
+	background-size: 100% 100%;
+	padding:0px;
+	margin:0px;
+	
+}
+
+#dvHdrTitle1 {
+	padding-top: 30px;
+	padding-left: 30px;
+	font-family: HelvNeueLightforIBM;
+	font-size:22px;
+	color: white;
+	margin:0px;
+}
+
+#dvHdrTitle2 {
+	padding-top: 10px;
+	padding-left: 30px;
+	font-family: HelvNeueLightforIBM;
+	font-size:18px;
+	color: white;
+	margin:0px;
+}
+
+#dvContent {
+	padding-top: 0px;
+	line-height: 25px;
+	font-family: HelvNeueLightforIBM;
+	text-align: center;
+	font-size:18px;
+	font-weight: bold;
+	margin: auto;
+}
+
+#vid1{
+	margin-top:0px;
+/*	box-shadow: 3px 3px 5px #888888;*/
+}
+#dvVid{
+	position: relative;
+	width:800px;
+	margin: auto;	
+}
+
+#btnPlay {
+	position: absolute;
+	left: 47%;
+	top:45%;
+	
+}
+
+#btnPause {
+	position: absolute;
+	height: 28px;
+	left: 43%;
+	top:88%;
+	display:none;	
+}
+
+#btnMute {
+	position: absolute;
+	height: 28px;
+	left: 48%;
+	top:88%;
+	display:none;	
+}
+
+#btnSkip {
+	position: absolute;
+	height: 28px;
+	left: 53%;
+	top:88%;
+	display:none;	
+}
+
+.btnVidAction{
+	cursor: pointer;
+}
+
+#btnLearn {
+	border:2px solid #A0A0A0;
+	color: #A0A0A0;
+	background: #ffffff;
+	padding: 5px;
+	margin-top: 7px;
+	margin-bottom: 15px;
+	
+	font-family: HelvNeueLightforIBM;
+	text-align: center;
+	font-size:20px;
+	cursor: pointer;
+
+}
+
+.btnVid {
+	display: none;
+	position: absolute;
+	cursor: pointer;
+
+}
+
+#btnTrue {
+	height:22px;
+	
+}
+
+#btnFraud {
+	height:22px;
+}
+
+#btnAgain {
+	height:32px;
+}
+
+#btnWhy {
+	height:32px;
+}
+
+#btnHow {
+	height:24px;
+}
+
+#btnAgainSmall {
+	height:24px;
+}
+
+#audio1 {
+	display:none;
+}
