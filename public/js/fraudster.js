@@ -37,7 +37,7 @@ $( document ).ready(function() {
 	arrPos.push(77);//15 end after she
 	arrPos.push(86);//16 end after he
 	arrPos.push(69.4);//17 she is not button
-	arrPos.push(78.6);//18 he is not buttons
+	arrPos.push(78.8);//18 he is not buttons
 	arrPos.push(88.5);//19 you failed btns
 	
 	//vidAudio = new Audio('audio/bgsound.mp3');
@@ -51,11 +51,15 @@ $( document ).ready(function() {
 				isMuted = false;
 				vid.muted = false;
 				$( "#btnMute" ).attr("src","img/mute.png");
+				
+				ga('send', 'event', 'video', 'mute', 'unmute');
 			}
 			else{
 				isMuted = true;
 				vid.muted = true;
 				$( "#btnMute" ).attr("src","img/un-mute.png");
+				
+				ga('send', 'event', 'video', 'mute', 'mute');
 			}
 		});
 	}
@@ -65,11 +69,15 @@ $( document ).ready(function() {
 				$("#audio1").animate({volume: 0.7}, 0);
 				isMuted = false;
 				$( "#btnMute" ).attr("src","img/mute.png");
+				
+				ga('send', 'event', 'video', 'mute', 'unmute');
 			}
 			else{
 				$("#audio1").animate({volume: 0.0}, 0);
 				isMuted = true;
 				$( "#btnMute" ).attr("src","img/un-mute.png");
+				
+				ga('send', 'event', 'video', 'mute', 'mute');
 			}
 		});
 	}
@@ -82,6 +90,8 @@ $( document ).ready(function() {
 		$( "#btnMute" ).show();
 		$( "#btnPause" ).show();
 		$( "#btnSkip" ).show();
+		
+		ga('send', 'event', 'video', 'play', 'start game');
 	});
 	
 	
@@ -91,34 +101,53 @@ $( document ).ready(function() {
 			$( "#btnPause" ).attr("src","img/pause_btn.png");
 			isPaused = false;			
 			vid.play();
+			
+			ga('send', 'event', 'video', 'btnPause', 'unpause');
+			
 		}
 		else {
 			$( "#btnPause" ).attr("src","img/play_btn.png");
 			isPaused = true;			
 			vid.pause();
+			ga('send', 'event', 'video', 'btnPause', 'pause');
 		}
 		
 	});
 	
 	$( "#btnSkip" ).click(function() {
 		skipTheGuide();
+		
+		ga('send', 'event', 'video', 'skip', 'skip start');
+		
 	});
 	
 	
 	$( "#btnWhy" ).click(function() {
 		goToEnd();
+		
+		ga('send', 'event', 'video', 'button why', 'go to end');
+
 	});
 	
 	$( "#btnHow" ).click(function() {
 		learnMore();
+		
+		ga('send', 'event', 'video', 'button how', 'learn more page');
+		
 	});
 	
 	$( "#btnLearn" ).click(function() {
 		learnMore();
+		
+		ga('send', 'event', 'video', 'button learn', 'learn more page');
+		
 	});
 
 	$( "#btnAgain" ).click(function() {
 		restartGame();
+		
+		ga('send', 'event', 'video', 'button again', 'restart game');
+
 	});
 
 	$( "#btnAgainSmall" ).click(function() {
@@ -175,10 +204,12 @@ function vidAction(actionId){
 			goToPos(nextPos);
 			//correctAnswer();
 			
+			ga('send', 'event', 'video', 'frame1', 'select true button');
 		});
 				
 		$( "#btnFraud" ).click(function() {
 			wrongAnswer("female");
+			ga('send', 'event', 'video', 'frame1', 'select fraud button');
 		});		
 		
 	}
@@ -189,10 +220,15 @@ function vidAction(actionId){
 			
 			var nextPos = arrPos[3];
 			goToPos(nextPos);
+			
+			ga('send', 'event', 'video', 'frame2', 'select true button');
 		});
 
 		$( "#btnFraud" ).click(function() {
 			wrongAnswer("male");
+			
+			ga('send', 'event', 'video', 'frame2', 'select fraud button');
+
 		});			
 		
 	}
@@ -200,20 +236,18 @@ function vidAction(actionId){
 		//the real fraudster
 		setBtnLocation("41", "13", "25.1");		
 		$( "#btnTrue" ).click(function() {
-			//goTofinalFrame();
-			
 			var nextPos = arrPos[5];
 			goToPos(nextPos);
+			ga('send', 'event', 'video', 'frame3', 'select true button');
 
 		});
 
 		$( "#btnFraud" ).click(function() {
-			//var nextPos = arrPos[5];
-			//goToPos(nextPos);
-			
-			//didLocteFraudster = true;
 			isFrausterFound = true;
 			goToEnd();
+			
+			ga('send', 'event', 'video', 'frame3', 'select fale button - find it');
+			
 		});			
 	}
 	else if (actionId == 6){		
@@ -221,10 +255,14 @@ function vidAction(actionId){
 		$( "#btnTrue" ).click(function() {
 			var nextPos = arrPos[7];
 			goToPos(nextPos);
+			
+			ga('send', 'event', 'video', 'frame4', 'select true button');
+
 		});
 
 		$( "#btnFraud" ).click(function() {
 			wrongAnswer("male");
+			ga('send', 'event', 'video', 'frame4', 'select fraud button');
 		});			
 		
 	}
@@ -232,11 +270,13 @@ function vidAction(actionId){
 		setBtnLocation("72.3", "12", "24");
 		$( "#btnTrue" ).click(function() {
 			goTofinalFrame();
-			//correctAnswer();
+			ga('send', 'event', 'video', 'frame5', 'select true button');
+
 		});
 
 		$( "#btnFraud" ).click(function() {
 			wrongAnswer("female");
+			ga('send', 'event', 'video', 'frame5', 'select fraud button');
 		});			
 		
 	}
@@ -246,7 +286,7 @@ function vidAction(actionId){
 			goTofinalFrame();			
 		}
 		else {
-			//showAgainButtins();
+			ga('send', 'event', 'video', 'she is not the fraudster', '');
 		}
 	}
 	else if (actionId == 10){
@@ -258,11 +298,11 @@ function vidAction(actionId){
 			goTofinalFrame();			
 		}
 		else {
-			//showAgainButtins();
+			ga('send', 'event', 'video', 'he is not the fraudster', '');
 		}
 	}
 	else if (actionId == 11){
-		//showAgainButtins();	
+		ga('send', 'event', 'video', 'you did notlocate the fraudster', '');
 	}	
 	else if (actionId == 12){
 		if (glblAction != GO_TO_END){
@@ -273,7 +313,7 @@ function vidAction(actionId){
 	}
 	else if (actionId == 13){
 		if (glblAction == GO_TO_END){
-			console.log("actoin 13 inside");
+	
 			hideAll();
 			$("#btnHow").css("top","74%");
 			$("#btnHow").css("left","8%");
@@ -282,6 +322,8 @@ function vidAction(actionId){
 			$("#btnAgainSmall").css("top","74%");
 			$("#btnAgainSmall").css("left","22%");
 			$("#btnAgainSmall").show();					
+			
+			ga('send', 'event', 'video', 'final frame - she is the fraudster', '');
 		}
 	}
 	else if (actionId == 14){
@@ -350,7 +392,7 @@ function vidAction(actionId){
 function goToEnd(){
 	 
 	hideAll();
-	console.log("btnwhy");
+	
 	glblAction = GO_TO_END;
 	 
  	var nextPos = 97.11;
@@ -360,7 +402,6 @@ function goToEnd(){
 	
 	if (!isAndroid()){
 		if (!isFrausterFound){
-			console.log("..358");
 			if (!isMuted){
 				vidAudio = document.getElementById('audio1');	
 				if (vidAudio.volume == 0.0){
@@ -467,7 +508,6 @@ function scaleSizes(){
 	var wHeight = $( window ).height();
 	
 	var wr = wWidth / 1330 ;
-	console.log("wr:" + wr);
 	
 	var vidW = 720;
 	if (wHeight > wWidth){
@@ -519,7 +559,7 @@ function scaleSizes(){
 	
 	
 	
-	console.log("wWidth:" +wWidth);
+	
 	
 	
 	
@@ -530,7 +570,11 @@ function scaleSizes(){
 function isAndroid(){
 	var ua = navigator.userAgent.toLowerCase();
 	var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
+	var isIphone = ua.indexOf("iphone") > -1;
 	if(isAndroid) {
+		return true;
+	}
+	else if (isIphone){
 		return true;
 	}
 	else {
