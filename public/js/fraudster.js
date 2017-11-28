@@ -477,7 +477,9 @@ function showButtons(){
 
 function learnMore(){
 	hideAll();
-	location.href = "https://www.ibm.com/us-en/marketplace/trusteer-new-account-fraud";	
+	var href = "https://www.ibm.com/us-en/marketplace/trusteer-new-account-fraud?";
+	href += "cm_mmc=OSocial_Blog-_-Security_Protect+against+web+fraud+and+cyber+crime-_-WW_WW-_-NewAccountFraud_ov61690&cm_mmca1=000000MR&cm_mmca2=10000178&";
+	location.href = href;
 }
 
 function restartGame(){
